@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>ZingGrid: Blank Grid</title>
+  <script src="https://cdn.zinggrid.com/zinggrid.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+ 
+<body>
+  <!-- Most features can be toggled on the toplevel zing-grid tag -->
+  <!-- <zing-grid caption="Employees" 
+        columns-control column-drag layout-controls pager 
+        page-size="4" 
+        page-size-options="2,4,8" 
+        search sort src="https://cdn.zinggrid.com/datasets/users.json"
+  > -->
+    <zing-grid caption="Pokemon" 
+        columns-control column-drag layout-controls pager 
+        page-size="6" 
+        page-size-options="3,6,9" 
+        search sort src="./pokemon.json"
+  >
+    <zg-colgroup>
+        <zg-column header="id" 
+        index="id, img" 
+        type="url" 
+        type-url-icon="outsidearrow"
+        >
+        [[index.id]]
+        </zg-column>
+      <zg-column index="img" 
+        header=" " 
+        menu-text="Img" 
+        type="image" 
+        cell-class="profile-avatar" 
+        content-width="50px" 
+        sort="disabled"
+      ></zg-column>
+      <zg-column index="id,name,type,base" 
+        header="Character" 
+        cell-class="character-info"
+      >
+        <span class="character-info--header">
+            <strong>Name:</strong> [[index.name.english]]
+            </span>
+        <br>
+        <span class="character-info--subheader">
+            <strong>JP:</strong>             
+                    [[index.name.japanese]]
+        </span>
+      </zg-column>
+      <zg-column index="type" 
+            width="300"
+            >
+        [[index.type]]
+
+        </zg-column>
+
+    </zg-colgroup>
+  </zing-grid>
+</body>
+ 
+</html>
